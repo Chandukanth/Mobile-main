@@ -1,0 +1,21 @@
+{
+  "expo": {
+    "name": "oneportal-mobile",
+    "slug": "oneportal-mobile",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "plugins": [
+      [
+        "expo-notifications",
+        {
+          "sounds": ["./src/assets/audio/message.mp3"]
+        }
+      ],
+      "expo-image-picker",
+      "react-native-background-fetch"
+    ]
+  },
+  "name": "oneportal-mobile"
+}

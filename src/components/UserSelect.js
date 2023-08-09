@@ -1,0 +1,43 @@
+import React, { useState, useEffect } from "react";
+import Select from '../components/Select'
+import { useIsFocused } from "@react-navigation/native";
+import { useForm } from "react-hook-form";
+import userService from "../services/UserService";
+import User from "../helper/User";
+
+
+const UserSelect = (props) => {
+    const { selectedUserId, label, onChange, required, placeholder ,divider,disable,control,name, showBorder} = props
+    const [userList, setUserList] = useState([]);
+    const isFocused = useIsFocused();
+
+
+    useEffect(() => {
+        getUserList();
+    }, [isFocused]);
+
+
+    const getUserList = () => {
+        userService.list(null,(response) => {
+            setUserList(response);
+
+        })
+    }
+
+    return (
+        <Select
+            control={control}
+            options={userList}
+            getDetails={(values) =>onChange && onChange(values)}
+            label={label}
+            placeholder={placeholder}
+            data={ selectedUserId}
+            name={name}
+            divider={divider}
+            disable={disable}
+            showBorder={showBorder}
+            required={required}
+        />
+    )
+};
+export default UserSelect;

@@ -1,0 +1,112 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.oneportalmobile">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- OPTIONAL PERMISSIONS, REMOVE WHATEVER YOU DO NOT NEED -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <!-- These require runtime permissions on M -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <uses-feature android:name="android.hardware.type.watch" />
+
+    <!-- Request legacy Bluetooth permissions on older devices. -->
+    <uses-permission android:name="android.permission.BLUETOOTH" android:maxSdkVersion="31" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" android:maxSdkVersion="31" />
+
+    <!-- Needed only if your app looks for Bluetooth devices.
+         If your app doesn't use Bluetooth scan results to derive physical
+         location information, you can strongly assert that your app
+         doesn't derive physical location. -->
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+
+    <!-- Needed only if your app makes the device discoverable to Bluetooth
+         devices. -->
+    <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
+
+    <!-- Needed only if your app communicates with already-paired Bluetooth
+         devices. -->
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+
+    <!-- Needed only if your app uses Bluetooth scan results to derive physical location. -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <!-- END OPTIONAL PERMISSIONS -->
+
+    <queries>
+        <!-- Support checking for http(s) links via the Linking API -->
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <category android:name="android.intent.category.BROWSABLE" />
+            <data android:scheme="https" />
+        </intent>
+    </queries>
+
+    <application
+        android:name=".MainApplication"
+        android:label="@string/thidiff"
+        android:icon="@mipmap/thidiff"
+        android:usesCleartextTraffic="true"
+        android:allowBackup="false"
+        android:theme="@style/AppTheme">
+         <meta-data android:name="expo.modules.updates.EXPO_UPDATE_URL" android:value="YOUR-APP-URL-HERE"/>
+         <meta-data android:name="expo.modules.updates.EXPO_SDK_VERSION" android:value="YOUR-APP-SDK-VERSION-HERE"/>
+
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/thidiff"
+            android:icon="@mipmap/thidiff"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustResize"
+            android:theme="@style/Theme.App.Thidiff"
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+
+        <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" android:exported="false" />
+
+        <!-- Activity aliases for launcher icons -->
+        <activity-alias
+            android:name="com.oneportalmobile.MainActivitythidiff"
+            android:enabled="true"
+            android:label="@string/thidiff"
+            android:exported="true"
+            android:icon="@mipmap/thidiff"
+            android:theme="@style/Theme.App.Thidiff"
+            android:targetActivity=".MainActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity-alias>
+
+        <activity-alias
+            android:name="com.oneportalmobile.MainActivityzunomart"
+            android:enabled="true"
+            android:exported="true"
+            android:label="@string/zunomart"
+            android:theme="@style/Theme.App.Zunomart"
+            android:icon="@mipmap/zunomart"
+            android:targetActivity=".MainActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity-alias>
+
+    </application>
+
+</manifest>
